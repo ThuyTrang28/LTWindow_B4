@@ -1,0 +1,16 @@
+E:\LTWINDOW_C#\LeNguyenThuyTrang_2123110130_Buoi3\Article02\bin\Debug\net8.0-windows\Article02.exe
+E:\LTWINDOW_C#\LeNguyenThuyTrang_2123110130_Buoi3\Article02\bin\Debug\net8.0-windows\Article02.deps.json
+E:\LTWINDOW_C#\LeNguyenThuyTrang_2123110130_Buoi3\Article02\bin\Debug\net8.0-windows\Article02.runtimeconfig.json
+E:\LTWINDOW_C#\LeNguyenThuyTrang_2123110130_Buoi3\Article02\bin\Debug\net8.0-windows\Article02.dll
+E:\LTWINDOW_C#\LeNguyenThuyTrang_2123110130_Buoi3\Article02\bin\Debug\net8.0-windows\Article02.pdb
+E:\LTWINDOW_C#\LeNguyenThuyTrang_2123110130_Buoi3\Article02\obj\Debug\net8.0-windows\Article02.Form1.resources
+E:\LTWINDOW_C#\LeNguyenThuyTrang_2123110130_Buoi3\Article02\obj\Debug\net8.0-windows\Article02.csproj.GenerateResource.cache
+E:\LTWINDOW_C#\LeNguyenThuyTrang_2123110130_Buoi3\Article02\obj\Debug\net8.0-windows\Article02.GeneratedMSBuildEditorConfig.editorconfig
+E:\LTWINDOW_C#\LeNguyenThuyTrang_2123110130_Buoi3\Article02\obj\Debug\net8.0-windows\Article02.AssemblyInfoInputs.cache
+E:\LTWINDOW_C#\LeNguyenThuyTrang_2123110130_Buoi3\Article02\obj\Debug\net8.0-windows\Article02.AssemblyInfo.cs
+E:\LTWINDOW_C#\LeNguyenThuyTrang_2123110130_Buoi3\Article02\obj\Debug\net8.0-windows\Article02.csproj.CoreCompileInputs.cache
+E:\LTWINDOW_C#\LeNguyenThuyTrang_2123110130_Buoi3\Article02\obj\Debug\net8.0-windows\Article02.dll
+E:\LTWINDOW_C#\LeNguyenThuyTrang_2123110130_Buoi3\Article02\obj\Debug\net8.0-windows\refint\Article02.dll
+E:\LTWINDOW_C#\LeNguyenThuyTrang_2123110130_Buoi3\Article02\obj\Debug\net8.0-windows\Article02.pdb
+E:\LTWINDOW_C#\LeNguyenThuyTrang_2123110130_Buoi3\Article02\obj\Debug\net8.0-windows\Article02.genruntimeconfig.cache
+E:\LTWINDOW_C#\LeNguyenThuyTrang_2123110130_Buoi3\Article02\obj\Debug\net8.0-windows\ref\Article02.dll

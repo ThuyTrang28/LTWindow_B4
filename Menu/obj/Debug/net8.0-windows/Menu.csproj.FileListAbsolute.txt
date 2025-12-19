@@ -1,0 +1,16 @@
+E:\LTWINDOW_C#\LeNguyenThuyTrang_2123110130_Buoi3\Menu\bin\Debug\net8.0-windows\Menu.exe
+E:\LTWINDOW_C#\LeNguyenThuyTrang_2123110130_Buoi3\Menu\bin\Debug\net8.0-windows\Menu.deps.json
+E:\LTWINDOW_C#\LeNguyenThuyTrang_2123110130_Buoi3\Menu\bin\Debug\net8.0-windows\Menu.runtimeconfig.json
+E:\LTWINDOW_C#\LeNguyenThuyTrang_2123110130_Buoi3\Menu\bin\Debug\net8.0-windows\Menu.dll
+E:\LTWINDOW_C#\LeNguyenThuyTrang_2123110130_Buoi3\Menu\bin\Debug\net8.0-windows\Menu.pdb
+E:\LTWINDOW_C#\LeNguyenThuyTrang_2123110130_Buoi3\Menu\obj\Debug\net8.0-windows\Menu.Form1.resources
+E:\LTWINDOW_C#\LeNguyenThuyTrang_2123110130_Buoi3\Menu\obj\Debug\net8.0-windows\Menu.csproj.GenerateResource.cache
+E:\LTWINDOW_C#\LeNguyenThuyTrang_2123110130_Buoi3\Menu\obj\Debug\net8.0-windows\Menu.GeneratedMSBuildEditorConfig.editorconfig
+E:\LTWINDOW_C#\LeNguyenThuyTrang_2123110130_Buoi3\Menu\obj\Debug\net8.0-windows\Menu.AssemblyInfoInputs.cache
+E:\LTWINDOW_C#\LeNguyenThuyTrang_2123110130_Buoi3\Menu\obj\Debug\net8.0-windows\Menu.AssemblyInfo.cs
+E:\LTWINDOW_C#\LeNguyenThuyTrang_2123110130_Buoi3\Menu\obj\Debug\net8.0-windows\Menu.csproj.CoreCompileInputs.cache
+E:\LTWINDOW_C#\LeNguyenThuyTrang_2123110130_Buoi3\Menu\obj\Debug\net8.0-windows\Menu.dll
+E:\LTWINDOW_C#\LeNguyenThuyTrang_2123110130_Buoi3\Menu\obj\Debug\net8.0-windows\refint\Menu.dll
+E:\LTWINDOW_C#\LeNguyenThuyTrang_2123110130_Buoi3\Menu\obj\Debug\net8.0-windows\Menu.pdb
+E:\LTWINDOW_C#\LeNguyenThuyTrang_2123110130_Buoi3\Menu\obj\Debug\net8.0-windows\Menu.genruntimeconfig.cache
+E:\LTWINDOW_C#\LeNguyenThuyTrang_2123110130_Buoi3\Menu\obj\Debug\net8.0-windows\ref\Menu.dll

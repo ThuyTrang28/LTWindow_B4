@@ -14,3 +14,4 @@ E:\LTWINDOW_C#\LeNguyenThuyTrang_2123110130_Buoi3\Article25\obj\Debug\net8.0-win
 E:\LTWINDOW_C#\LeNguyenThuyTrang_2123110130_Buoi3\Article25\obj\Debug\net8.0-windows\Article25.pdb
 E:\LTWINDOW_C#\LeNguyenThuyTrang_2123110130_Buoi3\Article25\obj\Debug\net8.0-windows\Article25.genruntimeconfig.cache
 E:\LTWINDOW_C#\LeNguyenThuyTrang_2123110130_Buoi3\Article25\obj\Debug\net8.0-windows\ref\Article25.dll
+E:\LTWINDOW_C#\LeNguyenThuyTrang_2123110130_Buoi3\Article25\obj\Debug\net8.0-windows\Article25.sourcelink.json

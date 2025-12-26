@@ -16,3 +16,8 @@ E:\LTWINDOW_C#\LeNguyenThuyTrang_2123110130_Buoi3\Article_QuanLy\obj\Debug\net8.
 E:\LTWINDOW_C#\LeNguyenThuyTrang_2123110130_Buoi3\Article_QuanLy\obj\Debug\net8.0-windows\ref\Article_QuanLy.dll
 E:\LTWINDOW_C#\LeNguyenThuyTrang_2123110130_Buoi3\Article_QuanLy\obj\Debug\net8.0-windows\Article_QuanLy.MainForm.resources
 E:\LTWINDOW_C#\LeNguyenThuyTrang_2123110130_Buoi3\Article_QuanLy\obj\Debug\net8.0-windows\Article_QuanLy.Dashboard.resources
+E:\LTWINDOW_C#\LeNguyenThuyTrang_2123110130_Buoi3\Article_QuanLy\obj\Debug\net8.0-windows\Article_QuanLy.MainForm2.resources
+E:\LTWINDOW_C#\LeNguyenThuyTrang_2123110130_Buoi3\Article_QuanLy\obj\Debug\net8.0-windows\Article_QuanLy.sourcelink.json
+E:\LTWINDOW_C#\LeNguyenThuyTrang_2123110130_Buoi3\Article_QuanLy\obj\Debug\net8.0-windows\Article_QuanLy.MainForm3.resources
+E:\LTWINDOW_C#\LeNguyenThuyTrang_2123110130_Buoi3\Article_QuanLy\obj\Debug\net8.0-windows\Article_QuanLy.MainForm4.resources
+E:\LTWINDOW_C#\LeNguyenThuyTrang_2123110130_Buoi3\Article_QuanLy\obj\Debug\net8.0-windows\Article_QuanLy.MainForm5.resources

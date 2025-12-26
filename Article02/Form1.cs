@@ -1,70 +1,91 @@
 ﻿using System;
-using System.IO; // Cần thiết cho Stream
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Xml.Serialization; // Cần thiết cho XML
+using System.IO;                // Thư viện để đọc/ghi file
+using System.Xml.Serialization; // Thư viện để chuyển đổi đối tượng sang XML
 
 namespace Article02
 {
     public partial class Form1 : Form
     {
-        // SỬA LỖI 1: Dùng đường dẫn tương đối (lưu ngay cạnh file .exe) để tránh lỗi quyền truy cập ổ C:
-        string path = "form.xml";
+        // Đường dẫn file lưu cấu hình. 
+        // Lưu ý: Nếu máy bạn không có ổ D, hãy đổi thành @"C:\form.xml" hoặc đường dẫn khác
+        string path = @"E:\form.xml";
 
         public Form1()
         {
             InitializeComponent();
         }
 
+        // --- HÀM GHI DỮ LIỆU (Slide 33) ---
         public void Write(InfoWindows iw)
         {
-            // SỬA LỖI: Dùng 'using' để tự động đóng file và giải phóng bộ nhớ an toàn hơn
-            using (StreamWriter file = new StreamWriter(path))
+            try
             {
                 XmlSerializer writer = new XmlSerializer(typeof(InfoWindows));
+                StreamWriter file = new StreamWriter(path);
                 writer.Serialize(file, iw);
+                file.Close();
+            }
+            catch (Exception ex)
+            {
+                // Bắt lỗi nếu ổ đĩa không tồn tại hoặc không có quyền ghi
+                MessageBox.Show("Lỗi ghi file: " + ex.Message);
             }
         }
 
-        public InfoWindows Read()
+        // --- HÀM ĐỌC DỮ LIỆU (Slide 33) ---
+        public InfoWindows? Read()
         {
-            InfoWindows iw = new InfoWindows();
+            // Kiểm tra file có tồn tại không trước khi đọc
+            if (!File.Exists(path)) return null;
 
-            // SỬA LỖI 2: Kiểm tra file có tồn tại không trước khi đọc
-            if (File.Exists(path))
+            try
             {
-                using (StreamReader file = new StreamReader(path))
-                {
-                    XmlSerializer reader = new XmlSerializer(typeof(InfoWindows));
+                XmlSerializer reader = new XmlSerializer(typeof(InfoWindows));
+                StreamReader file = new StreamReader(path);
 #pragma warning disable CS8600 // Converting null literal or possible null value to non-nullable type.
-                    iw = (InfoWindows)reader.Deserialize(file);
+                InfoWindows iw = (InfoWindows)reader.Deserialize(file);
 #pragma warning restore CS8600 // Converting null literal or possible null value to non-nullable type.
-                }
+                file.Close();
+                return iw;
             }
-#pragma warning disable CS8603 // Possible null reference return.
-            return iw;
-#pragma warning restore CS8603 // Possible null reference return.
+            catch
+            {
+                return null;
+            }
         }
 
-        // Sự kiện khi thay đổi kích thước xong
-        void Form1_ResizeEnd(object sender, System.EventArgs e)
+        // --- SỰ KIỆN RESIZE END (Slide 34) ---
+        // Sự kiện này chạy khi bạn kéo thả kích thước form xong và thả chuột ra
+        private void Form1_ResizeEnd(object sender, EventArgs e)
         {
             InfoWindows iw = new InfoWindows();
-            iw.Width = this.Width;
-            iw.Height = this.Height;
-            Write(iw);
+            iw.Width = this.Size.Width;   // Lấy chiều rộng hiện tại của Form
+            iw.Height = this.Size.Height; // Lấy chiều cao hiện tại của Form
+            Write(iw); // Lưu xuống file
+
+            // Dòng này để test chơi, cho title form hiện chữ "Đã lưu" để bạn biết nó chạy
+            this.Text = "Đã lưu kích thước: " + iw.Width + "x" + iw.Height;
         }
 
-        // Sự kiện khi Form load
-        void Form1_Load(object sender, System.EventArgs e)
+        // --- SỰ KIỆN LOAD (Slide 34) ---
+        // Sự kiện này chạy khi Form bắt đầu hiện lên
+        private void Form1_Load(object sender, EventArgs e)
         {
-            // Đọc cấu hình
-            InfoWindows iw = Read();
-
-            // SỬA LỖI 3: Chỉ gán kích thước nếu dữ liệu đọc về hợp lệ (khác 0)
-            if (iw != null && iw.Width > 0 && iw.Height > 0)
+#pragma warning disable CS8600 // Converting null literal or possible null value to non-nullable type.
+            InfoWindows iw = Read(); // Đọc file cũ lên
+#pragma warning restore CS8600 // Converting null literal or possible null value to non-nullable type.
+            if (iw != null)
             {
-                this.Width = iw.Width;
-                this.Height = iw.Height;
+                this.Width = iw.Width;   // Khôi phục chiều rộng
+                this.Height = iw.Height; // Khôi phục chiều cao
             }
         }
     }

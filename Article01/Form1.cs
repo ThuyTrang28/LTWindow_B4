@@ -1,38 +1,31 @@
 ﻿using System;
-using System.IO; // Bắt buộc có để dùng StreamWriter/Directory
 using System.Windows.Forms;
-using System.Xml.Serialization;
+using System.IO;                // Cần thiết để dùng StreamWriter
+using System.Xml.Serialization; // Cần thiết để dùng XmlSerializer
 
 namespace Article01
 {
     public partial class Form1 : Form
     {
-        // Đường dẫn file lưu trữ
-        string path = @"E:\form_info.xml";
+        // Đường dẫn file lưu trữ (như trong Slide 28)
+        // Lưu ý: Đảm bảo ổ D: tồn tại và bạn có quyền ghi file, 
+        // nếu không hãy đổi thành @"C:\temp\form.xml" hoặc đường dẫn khác.
+        string path = @"E:\form.xml";
 
         public Form1()
         {
             InitializeComponent();
         }
 
-        // Hàm ghi file
+        // Hàm ghi dữ liệu xuống file XML (Slide 28)
         public void Write(InfoWindows iw)
         {
             try
             {
-                // 1. Kiểm tra và tạo thư mục nếu chưa có
-#pragma warning disable CS8600 // Converting null literal or possible null value to non-nullable type.
-                string folder = Path.GetDirectoryName(path);
-#pragma warning restore CS8600 // Converting null literal or possible null value to non-nullable type.
-                if (!Directory.Exists(folder))
-                {
-#pragma warning disable CS8604 // Possible null reference argument.
-                    Directory.CreateDirectory(folder);
-#pragma warning restore CS8604 // Possible null reference argument.
-                }
-
-                // 2. Ghi file XML (Dùng 'using' để an toàn)
+                // Khởi tạo Serializer cho kiểu InfoWindows
                 XmlSerializer writer = new XmlSerializer(typeof(InfoWindows));
+
+                // Tạo file và ghi dữ liệu
                 using (StreamWriter file = new StreamWriter(path))
                 {
                     writer.Serialize(file, iw);
@@ -40,26 +33,26 @@ namespace Article01
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Lỗi ghi file: " + ex.Message);
+                MessageBox.Show("Có lỗi khi ghi file: " + ex.Message);
             }
         }
 
-        // Sự kiện Form Load
-        private void Form1_Load(object sender, EventArgs e)
-        {
-            InfoWindows iw = new InfoWindows();
-            iw.Width = this.Size.Width;
-            iw.Height = this.Size.Height;
-            Write(iw);
-        }
-
-        // Sự kiện khi kéo thả xong kích thước Form
+        // Sự kiện khi người dùng kết thúc việc thay đổi kích thước Form (Slide 29)
         private void Form1_ResizeEnd(object sender, EventArgs e)
         {
             InfoWindows iw = new InfoWindows();
             iw.Width = this.Size.Width;
             iw.Height = this.Size.Height;
-            Write(iw);
+            Write(iw); // Gọi hàm Write để lưu
+        }
+
+        // Sự kiện khi Form bắt đầu chạy (Slide 29)
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            InfoWindows iw = new InfoWindows();
+            iw.Width = this.Size.Width;
+            iw.Height = this.Size.Height;
+            Write(iw); // Gọi hàm Write để lưu
         }
     }
 }

@@ -8,7 +8,6 @@ namespace Article_QuanLy
 {
     public partial class MainForm : Form
     {
-        BindingList<NhanVien> danhSachNV = new BindingList<NhanVien>();
         private string currentImagePath = "";
 
         public MainForm()
@@ -18,17 +17,91 @@ namespace Article_QuanLy
 
         private void MainForm_Load(object sender, EventArgs e)
         {
-            dgvNhanVien.DataSource = danhSachNV;
+            // 1. Cấu hình bảng trước khi đổ dữ liệu
+            dgvNhanVien.AutoGenerateColumns = true; // Cho phép tự tạo cột từ Class
+            dgvNhanVien.RowTemplate.Height = 80;    // Tăng chiều cao hàng để chứa ảnh
+            dgvNhanVien.AllowUserToAddRows = false; // Không cho user tự thêm dòng trắng
 
-            // Định dạng cột Ngày sinh cho dễ nhìn
-            dgvNhanVien.Columns["NgaySinh"].DefaultCellStyle.Format = "dd/MM/yyyy";
+            // 2. Liên kết dữ liệu
+            dgvNhanVien.DataSource = DataGlobal.DanhSachNV;
 
-            // Ẩn cột đường dẫn ảnh nếu muốn
-            dgvNhanVien.Columns["HinhAnh"].Visible = false;
+            // 3. Xử lý giao diện cột
+            if (dgvNhanVien.Columns.Count > 0)
+            {
+                // Format ngày sinh
+                dgvNhanVien.Columns["NgaySinh"].DefaultCellStyle.Format = "dd/MM/yyyy";
 
-            // Data mẫu
-            danhSachNV.Add(new NhanVien("NV01", "Trần Văn A", "Nam", new DateTime(1995, 5, 20), "Giám đốc", "090123", ""));
-            danhSachNV.Add(new NhanVien("NV02", "Nguyễn Thị B", "Nữ", new DateTime(2000, 10, 15), "Kế toán", "090456", ""));
+                // --- ẨN CỘT ĐƯỜNG DẪN GỐC (Text) ---
+                if (dgvNhanVien.Columns.Contains("HinhAnh"))
+                {
+                    dgvNhanVien.Columns["HinhAnh"].Visible = false;
+                }
+
+                // --- THÊM CỘT ẢNH MỚI (Image) NẾU CHƯA CÓ ---
+                if (!dgvNhanVien.Columns.Contains("colAnhHienThi"))
+                {
+                    DataGridViewImageColumn imgCol = new DataGridViewImageColumn();
+                    imgCol.Name = "colAnhHienThi";
+                    imgCol.HeaderText = "Ảnh Chân Dung";
+                    imgCol.ImageLayout = DataGridViewImageCellLayout.Zoom; // Co giãn ảnh vừa ô
+                    imgCol.Width = 100;
+
+                    // Thêm cột ảnh vào vị trí đầu tiên (index 0)
+                    dgvNhanVien.Columns.Insert(0, imgCol);
+                }
+
+                // Đặt tên tiếng Việt cho các cột khác
+                dgvNhanVien.Columns["MaNV"].HeaderText = "Mã NV";
+                dgvNhanVien.Columns["TenNV"].HeaderText = "Họ Tên";
+                dgvNhanVien.Columns["GioiTinh"].HeaderText = "Giới Tính";
+                dgvNhanVien.Columns["NgaySinh"].HeaderText = "Ngày Sinh";
+                dgvNhanVien.Columns["ChucVu"].HeaderText = "Chức Vụ";
+                dgvNhanVien.Columns["DienThoai"].HeaderText = "Điện Thoại";
+
+                dgvNhanVien.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            }
+
+            // 4. Đăng ký sự kiện để vẽ ảnh lên ô
+#pragma warning disable CS8622 // Nullability of reference types in type of parameter doesn't match the target delegate (possibly because of nullability attributes).
+            dgvNhanVien.CellFormatting += DgvNhanVien_CellFormatting;
+#pragma warning restore CS8622 // Nullability of reference types in type of parameter doesn't match the target delegate (possibly because of nullability attributes).
+        }
+
+        // --- SỰ KIỆN QUAN TRỌNG: BIẾN ĐƯỜNG DẪN THÀNH ẢNH ---
+        private void DgvNhanVien_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
+        {
+            // Chỉ xử lý nếu đang ở cột "colAnhHienThi" và hàng hợp lệ
+            if (dgvNhanVien.Columns[e.ColumnIndex].Name == "colAnhHienThi" && e.RowIndex >= 0)
+            {
+                // Lấy đối tượng Nhân viên tại dòng đó
+                NhanVien? nv = dgvNhanVien.Rows[e.RowIndex].DataBoundItem as NhanVien;
+
+                if (nv != null && !string.IsNullOrEmpty(nv.HinhAnh) && File.Exists(nv.HinhAnh))
+                {
+                    try
+                    {
+                        // Load ảnh từ file (Dùng FileStream để không bị khóa file, tránh lỗi khi xóa/sửa)
+                        using (FileStream fs = new FileStream(nv.HinhAnh, FileMode.Open, FileAccess.Read))
+                        {
+                            // Tạo ảnh thumbnail nhỏ để hiển thị cho nhẹ bảng
+                            // (Resize về chiều cao 80px để khớp với bảng)
+                            using (Image original = Image.FromStream(fs))
+                            {
+                                // Clone ảnh để gán vào bảng (Tránh lỗi GDI+)
+                                e.Value = new Bitmap(original);
+                            }
+                        }
+                    }
+                    catch
+                    {
+                        e.Value = null; // Lỗi thì để trống
+                    }
+                }
+                else
+                {
+                    e.Value = null; // Không có ảnh hoặc đường dẫn sai
+                }
+            }
         }
 
         // --- CÁC NÚT CHỨC NĂNG ---
@@ -41,21 +114,21 @@ namespace Article_QuanLy
                 return;
             }
 
-            // Lấy giới tính
             string gioitinh = radNam.Checked ? "Nam" : "Nữ";
 
-            // Tạo nhân viên mới với đầy đủ thông tin
             NhanVien nv = new NhanVien(
                 txtMaNV.Text,
                 txtTenNV.Text,
                 gioitinh,
-                dtpNgaySinh.Value, // Lấy ngày từ DateTimePicker
+                dtpNgaySinh.Value,
                 txtChucVu.Text,
                 txtDienThoai.Text,
                 currentImagePath
             );
 
-            danhSachNV.Add(nv);
+            DataGlobal.DanhSachNV.Add(nv);
+
+            MessageBox.Show("Thêm thành công!");
             ResetInput();
         }
 
@@ -68,22 +141,26 @@ namespace Article_QuanLy
             nv.TenNV = txtTenNV.Text;
             nv.ChucVu = txtChucVu.Text;
             nv.DienThoai = txtDienThoai.Text;
-
-            // Cập nhật thông tin mới
             nv.GioiTinh = radNam.Checked ? "Nam" : "Nữ";
             nv.NgaySinh = dtpNgaySinh.Value;
-            nv.HinhAnh = currentImagePath;
 
-            dgvNhanVien.Refresh();
+            if (!string.IsNullOrEmpty(currentImagePath))
+            {
+                nv.HinhAnh = currentImagePath;
+            }
+
+            dgvNhanVien.Refresh(); // Làm mới bảng để cập nhật ảnh
             MessageBox.Show("Cập nhật thành công!");
         }
 
         private void btnXoa_Click(object sender, EventArgs e)
         {
             if (dgvNhanVien.CurrentRow != null &&
-                MessageBox.Show("Xóa nhân viên này?", "Confirm", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                MessageBox.Show("Xóa nhân viên này?", "Xác nhận", MessageBoxButtons.YesNo) == DialogResult.Yes)
             {
-                danhSachNV.Remove((NhanVien)dgvNhanVien.CurrentRow.DataBoundItem);
+                NhanVien nv = (NhanVien)dgvNhanVien.CurrentRow.DataBoundItem;
+                DataGlobal.DanhSachNV.Remove(nv);
+
                 ResetInput();
             }
         }
@@ -94,31 +171,39 @@ namespace Article_QuanLy
             {
                 DataGridViewRow row = dgvNhanVien.Rows[e.RowIndex];
 
-                txtMaNV.Text = row.Cells["MaNV"].Value.ToString();
-                txtTenNV.Text = row.Cells["TenNV"].Value.ToString();
-                txtChucVu.Text = row.Cells["ChucVu"].Value?.ToString();
-                txtDienThoai.Text = row.Cells["DienThoai"].Value?.ToString();
+                // Lấy đối tượng dữ liệu gốc (Code gọn hơn lấy từng cell)
+                NhanVien nv = (NhanVien)row.DataBoundItem;
 
-                // Load Giới tính
-                string? gt = row.Cells["GioiTinh"].Value?.ToString();
-                if (gt == "Nam") radNam.Checked = true;
+                txtMaNV.Text = nv.MaNV;
+                txtTenNV.Text = nv.TenNV;
+                txtChucVu.Text = nv.ChucVu;
+                txtDienThoai.Text = nv.DienThoai;
+
+                if (nv.GioiTinh == "Nam") radNam.Checked = true;
                 else radNu.Checked = true;
 
-                // Load Ngày sinh
-                if (row.Cells["NgaySinh"].Value != null)
-                {
-                    dtpNgaySinh.Value = (DateTime)row.Cells["NgaySinh"].Value;
-                }
+                dtpNgaySinh.Value = nv.NgaySinh;
 
-                // Load Ảnh
-                string? path = row.Cells["HinhAnh"].Value?.ToString();
-#pragma warning disable CS8601 // Possible null reference assignment.
-                currentImagePath = path;
-#pragma warning restore CS8601 // Possible null reference assignment.
-                if (!string.IsNullOrEmpty(path) && File.Exists(path))
-                    picAvatar.Image = Image.FromFile(path);
+                // Load Ảnh lên PictureBox bên phải
+                currentImagePath = nv.HinhAnh;
+                if (!string.IsNullOrEmpty(currentImagePath) && File.Exists(currentImagePath))
+                {
+                    try
+                    {
+                        using (FileStream fs = new FileStream(currentImagePath, FileMode.Open, FileAccess.Read))
+                        {
+                            picAvatar.Image = Image.FromStream(fs);
+                        }
+                    }
+                    catch
+                    {
+                        picAvatar.Image = null;
+                    }
+                }
                 else
+                {
                     picAvatar.Image = null;
+                }
 
                 txtMaNV.Enabled = false;
             }
@@ -127,7 +212,7 @@ namespace Article_QuanLy
         private void btnChonAnh_Click(object sender, EventArgs e)
         {
             OpenFileDialog open = new OpenFileDialog();
-            open.Filter = "Image Files|*.jpg;*.png;*.bmp";
+            open.Filter = "Image Files|*.jpg;*.png;*.bmp;*.jpeg";
             if (open.ShowDialog() == DialogResult.OK)
             {
                 currentImagePath = open.FileName;
@@ -137,14 +222,20 @@ namespace Article_QuanLy
 
         private void ResetInput()
         {
-            txtMaNV.Clear(); txtTenNV.Clear(); txtChucVu.Clear(); txtDienThoai.Clear();
+            txtMaNV.Clear();
+            txtTenNV.Clear();
+            txtChucVu.Clear();
+            txtDienThoai.Clear();
             radNam.Checked = true;
             dtpNgaySinh.Value = DateTime.Now;
             picAvatar.Image = null;
             currentImagePath = "";
             txtMaNV.Enabled = true;
+            txtMaNV.Focus();
         }
 
         private void btnThoat_Click(object sender, EventArgs e) => this.Close();
+
+        private void pnlHeader_Paint(object sender, PaintEventArgs e) { }
     }
 }

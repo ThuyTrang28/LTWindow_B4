@@ -50,10 +50,10 @@ namespace Menu
             pnlMenu.Controls.Clear();
 
             // 1. TẠO CÁC NÚT TỪ 00 ĐẾN 26
-            for (int i = 0; i <= 26; i++)
+            for (int i = 0; i <= 27; i++)
             {
                 // Bỏ qua các bài: 4, 1, 3 theo yêu cầu của bạn
-                if (i == 4 || i == 1 || i == 3) continue;
+                if (i == 4 ) continue;
 
                 Button btn = new Button();
                 string articleId = i.ToString("D2");

@@ -14,3 +14,4 @@ E:\LTWINDOW_C#\LeNguyenThuyTrang_2123110130_Buoi3\Menu\obj\Debug\net8.0-windows\
 E:\LTWINDOW_C#\LeNguyenThuyTrang_2123110130_Buoi3\Menu\obj\Debug\net8.0-windows\Menu.pdb
 E:\LTWINDOW_C#\LeNguyenThuyTrang_2123110130_Buoi3\Menu\obj\Debug\net8.0-windows\Menu.genruntimeconfig.cache
 E:\LTWINDOW_C#\LeNguyenThuyTrang_2123110130_Buoi3\Menu\obj\Debug\net8.0-windows\ref\Menu.dll
+E:\LTWINDOW_C#\LeNguyenThuyTrang_2123110130_Buoi3\Menu\obj\Debug\net8.0-windows\Menu.sourcelink.json

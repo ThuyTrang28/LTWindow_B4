@@ -1,8 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Drawing; // Thư viện để dùng Point (tọa độ)
 
 namespace Article03
 {
@@ -10,6 +7,6 @@ namespace Article03
     {
         public int Width { get; set; }
         public int Height { get; set; }
-        public Point Location { get; set; } 
+        public Point Location { get; set; }
     }
 }

@@ -14,253 +14,331 @@
 
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            this.pnlHeader = new System.Windows.Forms.Panel();
-            this.lblTitle = new System.Windows.Forms.Label();
-            this.dgvNhanVien = new System.Windows.Forms.DataGridView();
-            this.pnlInput = new System.Windows.Forms.Panel();
-            this.dtpNgaySinh = new System.Windows.Forms.DateTimePicker();
-            this.lblNgaySinh = new System.Windows.Forms.Label();
-            this.radNu = new System.Windows.Forms.RadioButton();
-            this.radNam = new System.Windows.Forms.RadioButton();
-            this.lblGioiTinh = new System.Windows.Forms.Label();
-            this.picAvatar = new System.Windows.Forms.PictureBox();
-            this.btnChonAnh = new System.Windows.Forms.Button();
-            this.txtDienThoai = new System.Windows.Forms.TextBox();
-            this.lblDienThoai = new System.Windows.Forms.Label();
-            this.txtChucVu = new System.Windows.Forms.TextBox();
-            this.lblChucVu = new System.Windows.Forms.Label();
-            this.txtTenNV = new System.Windows.Forms.TextBox();
-            this.lblTenNV = new System.Windows.Forms.Label();
-            this.txtMaNV = new System.Windows.Forms.TextBox();
-            this.lblMaNV = new System.Windows.Forms.Label();
-            this.btnThem = new System.Windows.Forms.Button();
-            this.btnSua = new System.Windows.Forms.Button();
-            this.btnXoa = new System.Windows.Forms.Button();
-            this.btnThoat = new System.Windows.Forms.Button();
-            this.pnlButtons = new System.Windows.Forms.Panel();
-            this.pnlHeader.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvNhanVien)).BeginInit();
-            this.pnlInput.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.picAvatar)).BeginInit();
-            this.pnlButtons.SuspendLayout();
-            this.SuspendLayout();
-
+            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
+            pnlHeader = new Panel();
+            lblTitle = new Label();
+            dgvNhanVien = new DataGridView();
+            pnlInput = new Panel();
+            dtpNgaySinh = new DateTimePicker();
+            lblNgaySinh = new Label();
+            radNu = new RadioButton();
+            radNam = new RadioButton();
+            lblGioiTinh = new Label();
+            picAvatar = new PictureBox();
+            btnChonAnh = new Button();
+            txtDienThoai = new TextBox();
+            lblDienThoai = new Label();
+            txtChucVu = new TextBox();
+            lblChucVu = new Label();
+            txtTenNV = new TextBox();
+            lblTenNV = new Label();
+            txtMaNV = new TextBox();
+            lblMaNV = new Label();
+            btnThem = new Button();
+            btnSua = new Button();
+            btnXoa = new Button();
+            btnThoat = new Button();
+            pnlButtons = new Panel();
+            pnlHeader.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)dgvNhanVien).BeginInit();
+            pnlInput.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)picAvatar).BeginInit();
+            pnlButtons.SuspendLayout();
+            SuspendLayout();
             // 
-            // pnlHeader (Thanh tiêu đề màu hồng)
+            // pnlHeader
             // 
-            this.pnlHeader.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(148)))), ((int)(((byte)(166)))));
-            this.pnlHeader.Controls.Add(this.lblTitle);
-            this.pnlHeader.Dock = System.Windows.Forms.DockStyle.Top;
-            this.pnlHeader.Location = new System.Drawing.Point(0, 0);
-            this.pnlHeader.Name = "pnlHeader";
-            this.pnlHeader.Size = new System.Drawing.Size(950, 60);
-            this.pnlHeader.TabIndex = 0;
-
+            pnlHeader.BackColor = Color.FromArgb(255, 148, 166);
+            pnlHeader.Controls.Add(lblTitle);
+            pnlHeader.Dock = DockStyle.Top;
+            pnlHeader.Location = new Point(0, 0);
+            pnlHeader.Name = "pnlHeader";
+            pnlHeader.Size = new Size(950, 60);
+            pnlHeader.TabIndex = 0;
+            pnlHeader.Paint += pnlHeader_Paint;
+            // 
             // lblTitle
-            this.lblTitle.AutoSize = true;
-            this.lblTitle.Font = new System.Drawing.Font("Segoe UI", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.lblTitle.ForeColor = System.Drawing.Color.White;
-            this.lblTitle.Location = new System.Drawing.Point(20, 10);
-            this.lblTitle.Name = "lblTitle";
-            this.lblTitle.Text = "QUẢN LÝ NHÂN VIÊN";
-
             // 
-            // pnlInput (Khu vực nhập liệu)
-            // 
-            this.pnlInput.BackColor = System.Drawing.Color.White;
-            this.pnlInput.Controls.Add(this.dtpNgaySinh);
-            this.pnlInput.Controls.Add(this.lblNgaySinh);
-            this.pnlInput.Controls.Add(this.radNu);
-            this.pnlInput.Controls.Add(this.radNam);
-            this.pnlInput.Controls.Add(this.lblGioiTinh);
-            this.pnlInput.Controls.Add(this.picAvatar);
-            this.pnlInput.Controls.Add(this.btnChonAnh);
-            this.pnlInput.Controls.Add(this.txtDienThoai);
-            this.pnlInput.Controls.Add(this.lblDienThoai);
-            this.pnlInput.Controls.Add(this.txtChucVu);
-            this.pnlInput.Controls.Add(this.lblChucVu);
-            this.pnlInput.Controls.Add(this.txtTenNV);
-            this.pnlInput.Controls.Add(this.lblTenNV);
-            this.pnlInput.Controls.Add(this.txtMaNV);
-            this.pnlInput.Controls.Add(this.lblMaNV);
-            this.pnlInput.Dock = System.Windows.Forms.DockStyle.Top;
-            this.pnlInput.Location = new System.Drawing.Point(0, 60);
-            this.pnlInput.Name = "pnlInput";
-            this.pnlInput.Size = new System.Drawing.Size(950, 220);
-            this.pnlInput.TabIndex = 1;
-
-            // picAvatar
-            this.picAvatar.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.picAvatar.Location = new System.Drawing.Point(780, 20);
-            this.picAvatar.Name = "picAvatar";
-            this.picAvatar.Size = new System.Drawing.Size(140, 140);
-            this.picAvatar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.picAvatar.TabIndex = 8;
-            this.picAvatar.TabStop = false;
-
-            // btnChonAnh
-            this.btnChonAnh.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.btnChonAnh.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnChonAnh.Location = new System.Drawing.Point(780, 170);
-            this.btnChonAnh.Name = "btnChonAnh";
-            this.btnChonAnh.Size = new System.Drawing.Size(140, 30);
-            this.btnChonAnh.TabIndex = 9;
-            this.btnChonAnh.Text = "Chọn Ảnh...";
-            this.btnChonAnh.UseVisualStyleBackColor = false;
-            this.btnChonAnh.Click += new System.EventHandler(this.btnChonAnh_Click);
-
-            // --- Cột 1 ---
-            this.lblMaNV.AutoSize = true;
-            this.lblMaNV.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lblMaNV.Location = new System.Drawing.Point(30, 20);
-            this.lblMaNV.Name = "lblMaNV";
-            this.lblMaNV.Text = "Mã Nhân Viên:";
-            this.txtMaNV.Location = new System.Drawing.Point(30, 45);
-            this.txtMaNV.Size = new System.Drawing.Size(200, 27);
-
-            this.lblTenNV.AutoSize = true;
-            this.lblTenNV.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lblTenNV.Location = new System.Drawing.Point(30, 85);
-            this.lblTenNV.Name = "lblTenNV";
-            this.lblTenNV.Text = "Họ và Tên:";
-            this.txtTenNV.Location = new System.Drawing.Point(30, 110);
-            this.txtTenNV.Size = new System.Drawing.Size(200, 27);
-
-            // Giới tính (Radio)
-            this.lblGioiTinh.AutoSize = true;
-            this.lblGioiTinh.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lblGioiTinh.Location = new System.Drawing.Point(30, 150);
-            this.lblGioiTinh.Text = "Giới tính:";
-
-            this.radNam.AutoSize = true;
-            this.radNam.Checked = true;
-            this.radNam.Location = new System.Drawing.Point(30, 175);
-            this.radNam.Name = "radNam";
-            this.radNam.Text = "Nam";
-
-            this.radNu.AutoSize = true;
-            this.radNu.Location = new System.Drawing.Point(100, 175);
-            this.radNu.Name = "radNu";
-            this.radNu.Text = "Nữ";
-
-            // --- Cột 2 ---
-            this.lblChucVu.AutoSize = true;
-            this.lblChucVu.Location = new System.Drawing.Point(280, 20);
-            this.lblChucVu.Text = "Chức Vụ:";
-            this.txtChucVu.Location = new System.Drawing.Point(280, 45);
-            this.txtChucVu.Size = new System.Drawing.Size(200, 27);
-
-            this.lblDienThoai.AutoSize = true;
-            this.lblDienThoai.Location = new System.Drawing.Point(280, 85);
-            this.lblDienThoai.Text = "Điện Thoại:";
-            this.txtDienThoai.Location = new System.Drawing.Point(280, 110);
-            this.txtDienThoai.Size = new System.Drawing.Size(200, 27);
-
-            // Ngày sinh (DateTimePicker)
-            this.lblNgaySinh.AutoSize = true;
-            this.lblNgaySinh.Location = new System.Drawing.Point(280, 150);
-            this.lblNgaySinh.Text = "Ngày Sinh:";
-
-            this.dtpNgaySinh.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpNgaySinh.Location = new System.Drawing.Point(280, 175);
-            this.dtpNgaySinh.Size = new System.Drawing.Size(200, 27);
-
-            // 
-            // pnlButtons (Khu vực nút bấm)
-            // 
-            this.pnlButtons.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.pnlButtons.Controls.Add(this.btnThem);
-            this.pnlButtons.Controls.Add(this.btnSua);
-            this.pnlButtons.Controls.Add(this.btnXoa);
-            this.pnlButtons.Controls.Add(this.btnThoat);
-            this.pnlButtons.Dock = System.Windows.Forms.DockStyle.Top;
-            this.pnlButtons.Location = new System.Drawing.Point(0, 280);
-            this.pnlButtons.Name = "pnlButtons";
-            this.pnlButtons.Size = new System.Drawing.Size(950, 60);
-            this.pnlButtons.TabIndex = 2;
-
-            // Style nút bấm
-            this.btnThem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(148)))), ((int)(((byte)(166)))));
-            this.btnThem.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnThem.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.btnThem.ForeColor = System.Drawing.Color.White;
-            this.btnThem.Location = new System.Drawing.Point(30, 10);
-            this.btnThem.Size = new System.Drawing.Size(100, 40);
-            this.btnThem.Text = "Thêm";
-            this.btnThem.Click += new System.EventHandler(this.btnThem_Click);
-
-            this.btnSua.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(108)))), ((int)(((byte)(92)))), ((int)(((byte)(231)))));
-            this.btnSua.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSua.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.btnSua.ForeColor = System.Drawing.Color.White;
-            this.btnSua.Location = new System.Drawing.Point(150, 10);
-            this.btnSua.Size = new System.Drawing.Size(100, 40);
-            this.btnSua.Text = "Sửa";
-            this.btnSua.Click += new System.EventHandler(this.btnSua_Click);
-
-            this.btnXoa.BackColor = System.Drawing.Color.IndianRed;
-            this.btnXoa.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnXoa.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.btnXoa.ForeColor = System.Drawing.Color.White;
-            this.btnXoa.Location = new System.Drawing.Point(270, 10);
-            this.btnXoa.Size = new System.Drawing.Size(100, 40);
-            this.btnXoa.Text = "Xóa";
-            this.btnXoa.Click += new System.EventHandler(this.btnXoa_Click);
-
-            this.btnThoat.BackColor = System.Drawing.Color.Gray;
-            this.btnThoat.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnThoat.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.btnThoat.ForeColor = System.Drawing.Color.White;
-            this.btnThoat.Location = new System.Drawing.Point(820, 10);
-            this.btnThoat.Size = new System.Drawing.Size(100, 40);
-            this.btnThoat.Text = "Thoát";
-            this.btnThoat.Click += new System.EventHandler(this.btnThoat_Click);
-
+            lblTitle.AutoSize = true;
+            lblTitle.Font = new Font("Segoe UI", 16F, FontStyle.Bold);
+            lblTitle.ForeColor = Color.White;
+            lblTitle.Location = new Point(20, 10);
+            lblTitle.Name = "lblTitle";
+            lblTitle.Size = new Size(291, 37);
+            lblTitle.TabIndex = 0;
+            lblTitle.Text = "QUẢN LÝ NHÂN VIÊN";
             // 
             // dgvNhanVien
             // 
-            this.dgvNhanVien.BackgroundColor = System.Drawing.Color.White;
-            this.dgvNhanVien.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(230)))), ((int)(((byte)(235))))); // Header hồng nhạt
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvNhanVien.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
-            this.dgvNhanVien.ColumnHeadersHeight = 30;
-            this.dgvNhanVien.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dgvNhanVien.EnableHeadersVisualStyles = false;
-            this.dgvNhanVien.Location = new System.Drawing.Point(0, 340);
-            this.dgvNhanVien.Name = "dgvNhanVien";
-            this.dgvNhanVien.RowHeadersWidth = 51;
-            this.dgvNhanVien.RowTemplate.Height = 29;
-            this.dgvNhanVien.Size = new System.Drawing.Size(950, 260);
-            this.dgvNhanVien.TabIndex = 3;
-            this.dgvNhanVien.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvNhanVien_CellClick);
-
+            dgvNhanVien.BackgroundColor = Color.White;
+            dgvNhanVien.BorderStyle = BorderStyle.None;
+            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = Color.FromArgb(255, 230, 235);
+            dataGridViewCellStyle1.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
+            dataGridViewCellStyle1.ForeColor = Color.Black;
+            dataGridViewCellStyle1.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
+            dgvNhanVien.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dgvNhanVien.ColumnHeadersHeight = 30;
+            dgvNhanVien.Dock = DockStyle.Fill;
+            dgvNhanVien.EnableHeadersVisualStyles = false;
+            dgvNhanVien.Location = new Point(0, 340);
+            dgvNhanVien.Name = "dgvNhanVien";
+            dgvNhanVien.RowHeadersWidth = 51;
+            dgvNhanVien.Size = new Size(950, 260);
+            dgvNhanVien.TabIndex = 3;
+            dgvNhanVien.CellClick += dgvNhanVien_CellClick;
+            // 
+            // pnlInput
+            // 
+            pnlInput.BackColor = Color.White;
+            pnlInput.Controls.Add(dtpNgaySinh);
+            pnlInput.Controls.Add(lblNgaySinh);
+            pnlInput.Controls.Add(radNu);
+            pnlInput.Controls.Add(radNam);
+            pnlInput.Controls.Add(lblGioiTinh);
+            pnlInput.Controls.Add(picAvatar);
+            pnlInput.Controls.Add(btnChonAnh);
+            pnlInput.Controls.Add(txtDienThoai);
+            pnlInput.Controls.Add(lblDienThoai);
+            pnlInput.Controls.Add(txtChucVu);
+            pnlInput.Controls.Add(lblChucVu);
+            pnlInput.Controls.Add(txtTenNV);
+            pnlInput.Controls.Add(lblTenNV);
+            pnlInput.Controls.Add(txtMaNV);
+            pnlInput.Controls.Add(lblMaNV);
+            pnlInput.Dock = DockStyle.Top;
+            pnlInput.Location = new Point(0, 60);
+            pnlInput.Name = "pnlInput";
+            pnlInput.Size = new Size(950, 220);
+            pnlInput.TabIndex = 1;
+            // 
+            // dtpNgaySinh
+            // 
+            dtpNgaySinh.Format = DateTimePickerFormat.Short;
+            dtpNgaySinh.Location = new Point(280, 175);
+            dtpNgaySinh.Name = "dtpNgaySinh";
+            dtpNgaySinh.Size = new Size(200, 27);
+            dtpNgaySinh.TabIndex = 0;
+            // 
+            // lblNgaySinh
+            // 
+            lblNgaySinh.AutoSize = true;
+            lblNgaySinh.Location = new Point(280, 150);
+            lblNgaySinh.Name = "lblNgaySinh";
+            lblNgaySinh.Size = new Size(79, 20);
+            lblNgaySinh.TabIndex = 1;
+            lblNgaySinh.Text = "Ngày Sinh:";
+            // 
+            // radNu
+            // 
+            radNu.AutoSize = true;
+            radNu.Location = new Point(100, 175);
+            radNu.Name = "radNu";
+            radNu.Size = new Size(50, 24);
+            radNu.TabIndex = 2;
+            radNu.Text = "Nữ";
+            // 
+            // radNam
+            // 
+            radNam.AutoSize = true;
+            radNam.Checked = true;
+            radNam.Location = new Point(30, 175);
+            radNam.Name = "radNam";
+            radNam.Size = new Size(62, 24);
+            radNam.TabIndex = 3;
+            radNam.TabStop = true;
+            radNam.Text = "Nam";
+            // 
+            // lblGioiTinh
+            // 
+            lblGioiTinh.AutoSize = true;
+            lblGioiTinh.Font = new Font("Segoe UI", 10F);
+            lblGioiTinh.Location = new Point(30, 150);
+            lblGioiTinh.Name = "lblGioiTinh";
+            lblGioiTinh.Size = new Size(79, 23);
+            lblGioiTinh.TabIndex = 4;
+            lblGioiTinh.Text = "Giới tính:";
+            // 
+            // picAvatar
+            // 
+            picAvatar.BorderStyle = BorderStyle.FixedSingle;
+            picAvatar.Location = new Point(780, 20);
+            picAvatar.Name = "picAvatar";
+            picAvatar.Size = new Size(140, 140);
+            picAvatar.SizeMode = PictureBoxSizeMode.StretchImage;
+            picAvatar.TabIndex = 8;
+            picAvatar.TabStop = false;
+            // 
+            // btnChonAnh
+            // 
+            btnChonAnh.BackColor = Color.WhiteSmoke;
+            btnChonAnh.FlatStyle = FlatStyle.Flat;
+            btnChonAnh.Location = new Point(780, 170);
+            btnChonAnh.Name = "btnChonAnh";
+            btnChonAnh.Size = new Size(140, 30);
+            btnChonAnh.TabIndex = 9;
+            btnChonAnh.Text = "Chọn Ảnh...";
+            btnChonAnh.UseVisualStyleBackColor = false;
+            btnChonAnh.Click += btnChonAnh_Click;
+            // 
+            // txtDienThoai
+            // 
+            txtDienThoai.Location = new Point(280, 110);
+            txtDienThoai.Name = "txtDienThoai";
+            txtDienThoai.Size = new Size(200, 27);
+            txtDienThoai.TabIndex = 10;
+            // 
+            // lblDienThoai
+            // 
+            lblDienThoai.AutoSize = true;
+            lblDienThoai.Location = new Point(280, 85);
+            lblDienThoai.Name = "lblDienThoai";
+            lblDienThoai.Size = new Size(84, 20);
+            lblDienThoai.TabIndex = 11;
+            lblDienThoai.Text = "Điện Thoại:";
+            // 
+            // txtChucVu
+            // 
+            txtChucVu.Location = new Point(280, 45);
+            txtChucVu.Name = "txtChucVu";
+            txtChucVu.Size = new Size(200, 27);
+            txtChucVu.TabIndex = 12;
+            // 
+            // lblChucVu
+            // 
+            lblChucVu.AutoSize = true;
+            lblChucVu.Location = new Point(280, 20);
+            lblChucVu.Name = "lblChucVu";
+            lblChucVu.Size = new Size(66, 20);
+            lblChucVu.TabIndex = 13;
+            lblChucVu.Text = "Chức Vụ:";
+            // 
+            // txtTenNV
+            // 
+            txtTenNV.Location = new Point(30, 110);
+            txtTenNV.Name = "txtTenNV";
+            txtTenNV.Size = new Size(200, 27);
+            txtTenNV.TabIndex = 14;
+            // 
+            // lblTenNV
+            // 
+            lblTenNV.AutoSize = true;
+            lblTenNV.Font = new Font("Segoe UI", 10F);
+            lblTenNV.Location = new Point(30, 85);
+            lblTenNV.Name = "lblTenNV";
+            lblTenNV.Size = new Size(89, 23);
+            lblTenNV.TabIndex = 15;
+            lblTenNV.Text = "Họ và Tên:";
+            // 
+            // txtMaNV
+            // 
+            txtMaNV.Location = new Point(30, 45);
+            txtMaNV.Name = "txtMaNV";
+            txtMaNV.Size = new Size(200, 27);
+            txtMaNV.TabIndex = 16;
+            // 
+            // lblMaNV
+            // 
+            lblMaNV.AutoSize = true;
+            lblMaNV.Font = new Font("Segoe UI", 10F);
+            lblMaNV.Location = new Point(30, 20);
+            lblMaNV.Name = "lblMaNV";
+            lblMaNV.Size = new Size(124, 23);
+            lblMaNV.TabIndex = 17;
+            lblMaNV.Text = "Mã Nhân Viên:";
+            // 
+            // btnThem
+            // 
+            btnThem.BackColor = Color.FromArgb(255, 148, 166);
+            btnThem.FlatStyle = FlatStyle.Flat;
+            btnThem.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
+            btnThem.ForeColor = Color.White;
+            btnThem.Location = new Point(30, 10);
+            btnThem.Name = "btnThem";
+            btnThem.Size = new Size(100, 40);
+            btnThem.TabIndex = 0;
+            btnThem.Text = "Thêm";
+            btnThem.UseVisualStyleBackColor = false;
+            btnThem.Click += btnThem_Click;
+            // 
+            // btnSua
+            // 
+            btnSua.BackColor = Color.FromArgb(108, 92, 231);
+            btnSua.FlatStyle = FlatStyle.Flat;
+            btnSua.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
+            btnSua.ForeColor = Color.White;
+            btnSua.Location = new Point(150, 10);
+            btnSua.Name = "btnSua";
+            btnSua.Size = new Size(100, 40);
+            btnSua.TabIndex = 1;
+            btnSua.Text = "Sửa";
+            btnSua.UseVisualStyleBackColor = false;
+            btnSua.Click += btnSua_Click;
+            // 
+            // btnXoa
+            // 
+            btnXoa.BackColor = Color.IndianRed;
+            btnXoa.FlatStyle = FlatStyle.Flat;
+            btnXoa.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
+            btnXoa.ForeColor = Color.White;
+            btnXoa.Location = new Point(270, 10);
+            btnXoa.Name = "btnXoa";
+            btnXoa.Size = new Size(100, 40);
+            btnXoa.TabIndex = 2;
+            btnXoa.Text = "Xóa";
+            btnXoa.UseVisualStyleBackColor = false;
+            btnXoa.Click += btnXoa_Click;
+            // 
+            // btnThoat
+            // 
+            btnThoat.BackColor = Color.Gray;
+            btnThoat.FlatStyle = FlatStyle.Flat;
+            btnThoat.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
+            btnThoat.ForeColor = Color.White;
+            btnThoat.Location = new Point(820, 10);
+            btnThoat.Name = "btnThoat";
+            btnThoat.Size = new Size(100, 40);
+            btnThoat.TabIndex = 3;
+            btnThoat.Text = "Thoát";
+            btnThoat.UseVisualStyleBackColor = false;
+            btnThoat.Click += btnThoat_Click;
+            // 
+            // pnlButtons
+            // 
+            pnlButtons.BackColor = Color.WhiteSmoke;
+            pnlButtons.Controls.Add(btnThem);
+            pnlButtons.Controls.Add(btnSua);
+            pnlButtons.Controls.Add(btnXoa);
+            pnlButtons.Controls.Add(btnThoat);
+            pnlButtons.Dock = DockStyle.Top;
+            pnlButtons.Location = new Point(0, 280);
+            pnlButtons.Name = "pnlButtons";
+            pnlButtons.Size = new Size(950, 60);
+            pnlButtons.TabIndex = 2;
+            // 
             // MainForm
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(950, 600);
-            this.Controls.Add(this.dgvNhanVien);
-            this.Controls.Add(this.pnlButtons);
-            this.Controls.Add(this.pnlInput);
-            this.Controls.Add(this.pnlHeader);
-            this.Name = "MainForm";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Quản lý Nhân sự";
-            this.Load += new System.EventHandler(this.MainForm_Load);
-            this.pnlHeader.ResumeLayout(false);
-            this.pnlHeader.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvNhanVien)).EndInit();
-            this.pnlInput.ResumeLayout(false);
-            this.pnlInput.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.picAvatar)).EndInit();
-            this.pnlButtons.ResumeLayout(false);
-            this.ResumeLayout(false);
+            // 
+            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleMode = AutoScaleMode.Font;
+            ClientSize = new Size(950, 600);
+            Controls.Add(dgvNhanVien);
+            Controls.Add(pnlButtons);
+            Controls.Add(pnlInput);
+            Controls.Add(pnlHeader);
+            Name = "MainForm";
+            StartPosition = FormStartPosition.CenterScreen;
+            Text = "Quản lý Nhân sự";
+            Load += MainForm_Load;
+            pnlHeader.ResumeLayout(false);
+            pnlHeader.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)dgvNhanVien).EndInit();
+            pnlInput.ResumeLayout(false);
+            pnlInput.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)picAvatar).EndInit();
+            pnlButtons.ResumeLayout(false);
+            ResumeLayout(false);
         }
 
         #endregion

@@ -14,201 +14,195 @@
 
         private void InitializeComponent()
         {
-            // Khởi tạo các màu Pastel
-            // Màu hồng pastel chủ đạo (Light Pink)
-            System.Drawing.Color pastelPink = System.Drawing.Color.FromArgb(255, 182, 193);
-            // Màu xám nhạt cho chữ (để dễ đọc trên nền trắng)
-            System.Drawing.Color textGray = System.Drawing.Color.Gray;
-
-            this.panelLeft = new System.Windows.Forms.Panel();
-            this.lblWelcome = new System.Windows.Forms.Label();
-            this.lblIcon = new System.Windows.Forms.Label();
-            this.panelRight = new System.Windows.Forms.Panel();
-            this.btnClose = new System.Windows.Forms.Button();
-            this.btnLogin = new System.Windows.Forms.Button();
-            this.pnlPassLine = new System.Windows.Forms.Panel();
-            this.txtPassword = new System.Windows.Forms.TextBox();
-            this.lblPassword = new System.Windows.Forms.Label();
-            this.pnlUserLine = new System.Windows.Forms.Panel();
-            this.txtEmail = new System.Windows.Forms.TextBox();
-            this.lblEmail = new System.Windows.Forms.Label();
-            this.lblLoginTitle = new System.Windows.Forms.Label();
-            this.panelLeft.SuspendLayout();
-            this.panelRight.SuspendLayout();
-            this.SuspendLayout();
-
+            panelLeft = new Panel();
+            lblWelcome = new Label();
+            lblIcon = new Label();
+            panelRight = new Panel();
+            btnClose = new Button();
+            btnLogin = new Button();
+            pnlPassLine = new Panel();
+            txtPassword = new TextBox();
+            lblPassword = new Label();
+            pnlUserLine = new Panel();
+            txtEmail = new TextBox();
+            lblEmail = new Label();
+            lblLoginTitle = new Label();
+            panelLeft.SuspendLayout();
+            panelRight.SuspendLayout();
+            SuspendLayout();
             // 
             // panelLeft
             // 
-            this.panelLeft.BackColor = pastelPink; // Áp dụng màu Pastel
-            this.panelLeft.Controls.Add(this.lblWelcome);
-            this.panelLeft.Controls.Add(this.lblIcon);
-            this.panelLeft.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panelLeft.Location = new System.Drawing.Point(0, 0);
-            this.panelLeft.Name = "panelLeft";
-            this.panelLeft.Size = new System.Drawing.Size(320, 550);
-            this.panelLeft.TabIndex = 0;
+            panelLeft.BackColor = Color.FromArgb(255, 182, 193);
+            panelLeft.Controls.Add(lblWelcome);
+            panelLeft.Controls.Add(lblIcon);
+            panelLeft.Dock = DockStyle.Left;
+            panelLeft.Location = new Point(0, 0);
+            panelLeft.Name = "panelLeft";
+            panelLeft.Size = new Size(320, 550);
+            panelLeft.TabIndex = 0;
             // 
             // lblWelcome
             // 
-            this.lblWelcome.AutoSize = true;
-            this.lblWelcome.Font = new System.Drawing.Font("Segoe UI Light", 18F);
-            this.lblWelcome.ForeColor = System.Drawing.Color.White;
-            this.lblWelcome.Location = new System.Drawing.Point(27, 280);
-            this.lblWelcome.Name = "lblWelcome";
-            this.lblWelcome.Size = new System.Drawing.Size(268, 82);
-            this.lblWelcome.TabIndex = 0;
-            this.lblWelcome.Text = "Chào mừng đến với\nQuản Lý Nhân Sự";
+            lblWelcome.AutoSize = true;
+            lblWelcome.Font = new Font("Segoe UI Light", 18F);
+            lblWelcome.ForeColor = Color.White;
+            lblWelcome.Location = new Point(27, 280);
+            lblWelcome.Name = "lblWelcome";
+            lblWelcome.Size = new Size(268, 82);
+            lblWelcome.TabIndex = 0;
+            lblWelcome.Text = "Chào mừng đến với\nQuản Lý Nhân Sự";
             // 
             // lblIcon
             // 
-            this.lblIcon.AutoSize = true;
-            this.lblIcon.Font = new System.Drawing.Font("Segoe UI", 80F, System.Drawing.FontStyle.Bold);
-            this.lblIcon.ForeColor = System.Drawing.Color.White;
-            this.lblIcon.Location = new System.Drawing.Point(27, 96);
-            this.lblIcon.Name = "lblIcon";
-            this.lblIcon.Size = new System.Drawing.Size(250, 177);
-            this.lblIcon.TabIndex = 1;
-            this.lblIcon.Text = "🌸";
+            lblIcon.AutoSize = true;
+            lblIcon.Font = new Font("Segoe UI", 80F, FontStyle.Bold);
+            lblIcon.ForeColor = Color.White;
+            lblIcon.Location = new Point(27, 96);
+            lblIcon.Name = "lblIcon";
+            lblIcon.Size = new Size(250, 177);
+            lblIcon.TabIndex = 1;
+            lblIcon.Text = "🌸";
             // 
             // panelRight
             // 
-            this.panelRight.BackColor = System.Drawing.Color.White;
-            this.panelRight.Controls.Add(this.btnClose);
-            this.panelRight.Controls.Add(this.btnLogin);
-            this.panelRight.Controls.Add(this.pnlPassLine);
-            this.panelRight.Controls.Add(this.txtPassword);
-            this.panelRight.Controls.Add(this.lblPassword);
-            this.panelRight.Controls.Add(this.pnlUserLine);
-            this.panelRight.Controls.Add(this.txtEmail);
-            this.panelRight.Controls.Add(this.lblEmail);
-            this.panelRight.Controls.Add(this.lblLoginTitle);
-            this.panelRight.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelRight.Location = new System.Drawing.Point(320, 0);
-            this.panelRight.Name = "panelRight";
-            this.panelRight.Size = new System.Drawing.Size(480, 550);
-            this.panelRight.TabIndex = 1;
+            panelRight.BackColor = Color.White;
+            panelRight.Controls.Add(btnClose);
+            panelRight.Controls.Add(btnLogin);
+            panelRight.Controls.Add(pnlPassLine);
+            panelRight.Controls.Add(txtPassword);
+            panelRight.Controls.Add(lblPassword);
+            panelRight.Controls.Add(pnlUserLine);
+            panelRight.Controls.Add(txtEmail);
+            panelRight.Controls.Add(lblEmail);
+            panelRight.Controls.Add(lblLoginTitle);
+            panelRight.Dock = DockStyle.Fill;
+            panelRight.Location = new Point(320, 0);
+            panelRight.Name = "panelRight";
+            panelRight.Size = new Size(480, 550);
+            panelRight.TabIndex = 1;
+            panelRight.Paint += panelRight_Paint;
             // 
             // btnClose
             // 
-            this.btnClose.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnClose.FlatAppearance.BorderSize = 0;
-            this.btnClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnClose.Font = new System.Drawing.Font("Verdana", 16F, System.Drawing.FontStyle.Bold);
-            this.btnClose.ForeColor = pastelPink; // Màu nút X pastel
-            this.btnClose.Location = new System.Drawing.Point(430, 0);
-            this.btnClose.Name = "btnClose";
-            this.btnClose.Size = new System.Drawing.Size(50, 50);
-            this.btnClose.TabIndex = 8;
-            this.btnClose.Text = "×";
-            this.btnClose.UseVisualStyleBackColor = true;
-            this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
+            btnClose.Cursor = Cursors.Hand;
+            btnClose.FlatAppearance.BorderSize = 0;
+            btnClose.FlatStyle = FlatStyle.Flat;
+            btnClose.Font = new Font("Verdana", 16F, FontStyle.Bold);
+            btnClose.ForeColor = Color.FromArgb(255, 182, 193);
+            btnClose.Location = new Point(430, 0);
+            btnClose.Name = "btnClose";
+            btnClose.Size = new Size(50, 50);
+            btnClose.TabIndex = 8;
+            btnClose.Text = "×";
+            btnClose.UseVisualStyleBackColor = true;
+            btnClose.Click += btnClose_Click;
             // 
             // btnLogin
             // 
-            this.btnLogin.BackColor = pastelPink; // Nền nút pastel
-            this.btnLogin.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnLogin.FlatAppearance.BorderSize = 0;
-            this.btnLogin.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnLogin.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Bold);
-            this.btnLogin.ForeColor = System.Drawing.Color.White;
-            this.btnLogin.Location = new System.Drawing.Point(50, 380);
-            this.btnLogin.Name = "btnLogin";
-            this.btnLogin.Size = new System.Drawing.Size(380, 50);
-            this.btnLogin.TabIndex = 3;
-            this.btnLogin.Text = "LOGIN NOW";
-            this.btnLogin.UseVisualStyleBackColor = false;
-            this.btnLogin.Click += new System.EventHandler(this.btnLogin_Click);
+            btnLogin.BackColor = Color.FromArgb(255, 182, 193);
+            btnLogin.Cursor = Cursors.Hand;
+            btnLogin.FlatAppearance.BorderSize = 0;
+            btnLogin.FlatStyle = FlatStyle.Flat;
+            btnLogin.Font = new Font("Segoe UI", 13F, FontStyle.Bold);
+            btnLogin.ForeColor = Color.White;
+            btnLogin.Location = new Point(50, 380);
+            btnLogin.Name = "btnLogin";
+            btnLogin.Size = new Size(380, 50);
+            btnLogin.TabIndex = 3;
+            btnLogin.Text = "LOGIN NOW";
+            btnLogin.UseVisualStyleBackColor = false;
+            btnLogin.Click += btnLogin_Click;
             // 
             // pnlPassLine
             // 
-            this.pnlPassLine.BackColor = pastelPink; // Đường kẻ pastel
-            this.pnlPassLine.Location = new System.Drawing.Point(50, 315);
-            this.pnlPassLine.Name = "pnlPassLine";
-            this.pnlPassLine.Size = new System.Drawing.Size(380, 2);
-            this.pnlPassLine.TabIndex = 5;
+            pnlPassLine.BackColor = Color.FromArgb(255, 182, 193);
+            pnlPassLine.Location = new Point(50, 315);
+            pnlPassLine.Name = "pnlPassLine";
+            pnlPassLine.Size = new Size(380, 2);
+            pnlPassLine.TabIndex = 5;
             // 
             // txtPassword
             // 
-            this.txtPassword.BackColor = System.Drawing.Color.White;
-            this.txtPassword.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtPassword.Font = new System.Drawing.Font("Segoe UI", 13F);
-            this.txtPassword.ForeColor = textGray;
-            this.txtPassword.Location = new System.Drawing.Point(50, 280);
-            this.txtPassword.Name = "txtPassword";
-            this.txtPassword.PasswordChar = '•';
-            this.txtPassword.Size = new System.Drawing.Size(380, 24);
-            this.txtPassword.TabIndex = 2;
+            txtPassword.BackColor = Color.White;
+            txtPassword.BorderStyle = BorderStyle.None;
+            txtPassword.Font = new Font("Segoe UI", 13F);
+            txtPassword.ForeColor = Color.Gray;
+            txtPassword.Location = new Point(50, 280);
+            txtPassword.Name = "txtPassword";
+            txtPassword.PasswordChar = '•';
+            txtPassword.Size = new Size(380, 29);
+            txtPassword.TabIndex = 2;
             // 
             // lblPassword
             // 
-            this.lblPassword.AutoSize = true;
-            this.lblPassword.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
-            this.lblPassword.ForeColor = textGray;
-            this.lblPassword.Location = new System.Drawing.Point(50, 250);
-            this.lblPassword.Name = "lblPassword";
-            this.lblPassword.Size = new System.Drawing.Size(85, 19);
-            this.lblPassword.TabIndex = 9;
-            this.lblPassword.Text = "PASSWORD";
+            lblPassword.AutoSize = true;
+            lblPassword.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
+            lblPassword.ForeColor = Color.Gray;
+            lblPassword.Location = new Point(50, 250);
+            lblPassword.Name = "lblPassword";
+            lblPassword.Size = new Size(105, 23);
+            lblPassword.TabIndex = 9;
+            lblPassword.Text = "PASSWORD";
             // 
             // pnlUserLine
             // 
-            this.pnlUserLine.BackColor = pastelPink; // Đường kẻ pastel
-            this.pnlUserLine.Location = new System.Drawing.Point(50, 215);
-            this.pnlUserLine.Name = "pnlUserLine";
-            this.pnlUserLine.Size = new System.Drawing.Size(380, 2);
-            this.pnlUserLine.TabIndex = 3;
+            pnlUserLine.BackColor = Color.FromArgb(255, 182, 193);
+            pnlUserLine.Location = new Point(50, 215);
+            pnlUserLine.Name = "pnlUserLine";
+            pnlUserLine.Size = new Size(380, 2);
+            pnlUserLine.TabIndex = 3;
             // 
             // txtEmail
             // 
-            this.txtEmail.BackColor = System.Drawing.Color.White;
-            this.txtEmail.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtEmail.Font = new System.Drawing.Font("Segoe UI", 13F);
-            this.txtEmail.ForeColor = textGray;
-            this.txtEmail.Location = new System.Drawing.Point(50, 180);
-            this.txtEmail.Name = "txtEmail";
-            this.txtEmail.Size = new System.Drawing.Size(380, 24);
-            this.txtEmail.TabIndex = 1;
+            txtEmail.BackColor = Color.White;
+            txtEmail.BorderStyle = BorderStyle.None;
+            txtEmail.Font = new Font("Segoe UI", 13F);
+            txtEmail.ForeColor = Color.Gray;
+            txtEmail.Location = new Point(50, 180);
+            txtEmail.Name = "txtEmail";
+            txtEmail.Size = new Size(380, 29);
+            txtEmail.TabIndex = 1;
             // 
             // lblEmail
             // 
-            this.lblEmail.AutoSize = true;
-            this.lblEmail.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
-            this.lblEmail.ForeColor = textGray;
-            this.lblEmail.Location = new System.Drawing.Point(50, 150);
-            this.lblEmail.Name = "lblEmail";
-            this.lblEmail.Size = new System.Drawing.Size(117, 19);
-            this.lblEmail.TabIndex = 10;
-            this.lblEmail.Text = "EMAIL ADDRESS";
+            lblEmail.AutoSize = true;
+            lblEmail.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
+            lblEmail.ForeColor = Color.Gray;
+            lblEmail.Location = new Point(50, 150);
+            lblEmail.Name = "lblEmail";
+            lblEmail.Size = new Size(144, 23);
+            lblEmail.TabIndex = 10;
+            lblEmail.Text = "EMAIL ADDRESS";
             // 
             // lblLoginTitle
             // 
-            this.lblLoginTitle.AutoSize = true;
-            this.lblLoginTitle.Font = new System.Drawing.Font("Segoe UI", 24F, System.Drawing.FontStyle.Bold);
-            this.lblLoginTitle.ForeColor = pastelPink; // Tiêu đề pastel
-            this.lblLoginTitle.Location = new System.Drawing.Point(45, 60);
-            this.lblLoginTitle.Name = "lblLoginTitle";
-            this.lblLoginTitle.Size = new System.Drawing.Size(217, 45);
-            this.lblLoginTitle.TabIndex = 11;
-            this.lblLoginTitle.Text = "ĐĂNG NHẬP";
+            lblLoginTitle.AutoSize = true;
+            lblLoginTitle.Font = new Font("Segoe UI", 24F, FontStyle.Bold);
+            lblLoginTitle.ForeColor = Color.FromArgb(255, 182, 193);
+            lblLoginTitle.Location = new Point(45, 60);
+            lblLoginTitle.Name = "lblLoginTitle";
+            lblLoginTitle.Size = new Size(268, 54);
+            lblLoginTitle.TabIndex = 11;
+            lblLoginTitle.Text = "ĐĂNG NHẬP";
             // 
             // Form1
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 550);
-            this.ControlBox = false;
-            this.Controls.Add(this.panelRight);
-            this.Controls.Add(this.panelLeft);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Name = "Form1";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Hệ thống Đăng nhập";
-            this.panelLeft.ResumeLayout(false);
-            this.panelLeft.PerformLayout();
-            this.panelRight.ResumeLayout(false);
-            this.panelRight.PerformLayout();
-            this.ResumeLayout(false);
+            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleMode = AutoScaleMode.Font;
+            ClientSize = new Size(800, 550);
+            ControlBox = false;
+            Controls.Add(panelRight);
+            Controls.Add(panelLeft);
+            FormBorderStyle = FormBorderStyle.None;
+            Name = "Form1";
+            StartPosition = FormStartPosition.CenterScreen;
+            Text = "Hệ thống Đăng nhập";
+            panelLeft.ResumeLayout(false);
+            panelLeft.PerformLayout();
+            panelRight.ResumeLayout(false);
+            panelRight.PerformLayout();
+            ResumeLayout(false);
         }
 
         #endregion
